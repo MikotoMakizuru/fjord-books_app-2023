@@ -1,0 +1,37 @@
+ja:
+  books:
+    book:
+      title: タイトル
+      memo: メモ
+      author: 著者
+      picture: 写真
+    index:
+      books: 本一覧
+      new_book: 本の追加
+      show_this_book: 詳しく見る
+    new:
+      new_book: 本の追加
+      back_to_books: 本一覧
+    show:
+      edit_this_book: 編集
+      back_to_books: 本一覧
+      destroy_this_book: 削除
+    edit:
+      editing_book: 本の編集
+      show_this_book: 詳しく見る
+      back_to_books: 本一覧
+    create:
+      success: 本を追加しました
+    update:
+      success: 本を更新しました
+    destroy:
+      success: 本を削除しました
+  activerecord:
+    models:
+      book:
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 写真
