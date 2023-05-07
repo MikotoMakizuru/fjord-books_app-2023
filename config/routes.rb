@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: redirect('/books')
+  root to: 'books#index'
 
   scope "(:locale)", locale: /ja|en/ do
     resources :books
