@@ -15,7 +15,7 @@ ja:
         editing_book: 本の編集
         destroy_this_book: 本の削除
         back_to_books: 本の一覧に戻る
-  flash_message:
+  notice:
     create: "%{name}を登録しました"
     update: "%{name}を更新しました"
     destroy: "%{name}を削除しました"

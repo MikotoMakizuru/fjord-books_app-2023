@@ -1,7 +1,7 @@
 en:
   activerecord:
     models:
-      book:
+      book: Book
     attributes:
       book:
         new_book: New book
@@ -10,7 +10,7 @@ en:
         editing_book: Editing book
         destroy_this_book: Destroy this book
         back_to_books: Back to books
-  flash_message:
+  notice:
     create: "%{name} was successfully created."
     update: "%{name} was successfully updated."
     destroy: "%{name} was successfully destroyed."
