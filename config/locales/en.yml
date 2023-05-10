@@ -2,14 +2,13 @@ en:
   activerecord:
     models:
       book: Book
-    attributes:
-      book:
-        new_book: New book
-        show_this_book: Show this book
-        edit_this_book: Edit this book
-        editing_book: Editing book
-        destroy_this_book: Destroy this book
-        back_to_books: Back to books
+  book_views:
+    new_book: New book
+    show_this_book: Show this book
+    edit_this_book: Edit this book
+    editing_book: Editing book
+    destroy_this_book: Destroy this book
+    back_to_books: Back to books
   notice:
     create: "%{name} was successfully created."
     update: "%{name} was successfully updated."

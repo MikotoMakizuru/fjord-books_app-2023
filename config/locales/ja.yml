@@ -8,13 +8,14 @@ ja:
         memo: メモ
         author: 著者
         picture: 写真
-        books: 本の一覧
-        new_book: 本の新規登録
-        show_this_book: 詳しく見る
-        edit_this_book: 本の編集
-        editing_book: 本の編集
-        destroy_this_book: 本の削除
-        back_to_books: 本の一覧に戻る
+  book_views:
+    books: 本の一覧
+    new_book: 本の新規登録
+    show_this_book: 詳しく見る
+    edit_this_book: 本の編集
+    editing_book: 本の編集
+    destroy_this_book: 本の削除
+    back_to_books: 本の一覧に戻る
   notice:
     create: "%{name}を登録しました"
     update: "%{name}を更新しました"
