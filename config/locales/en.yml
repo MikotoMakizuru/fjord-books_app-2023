@@ -3,12 +3,12 @@ en:
     models:
       book: Book
   book_views:
-    new_book: New book
-    show_this_book: Show this book
-    edit_this_book: Edit this book
-    editing_book: Editing book
-    destroy_this_book: Destroy this book
-    back_to_books: Back to books
+    new_book: "New %{name}"
+    show_this_book: "Show this %{name}"
+    edit_this_book: "Edit this %{name}"
+    editing_book: "Editing %{name}"
+    destroy_this_book: "Destroy this %{name}"
+    back_to_books: "Back to %{name}s"
   notice:
     create: "%{name} was successfully created."
     update: "%{name} was successfully updated."

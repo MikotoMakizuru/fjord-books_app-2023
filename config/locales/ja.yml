@@ -9,13 +9,13 @@ ja:
         author: 著者
         picture: 写真
   book_views:
-    books: 本の一覧
-    new_book: 本の新規登録
-    show_this_book: 詳しく見る
-    edit_this_book: 本の編集
-    editing_book: 本の編集
-    destroy_this_book: 本の削除
-    back_to_books: 本の一覧に戻る
+    books: "%{name}の一覧"
+    new_book: "%{name}の新規登録"
+    show_this_book: "%{name}を詳しく見る"
+    edit_this_book: "%{name}の編集"
+    editing_book: "%{name}の編集"
+    destroy_this_book: "%{name}の削除"
+    back_to_books: "%{name}の一覧に戻る"
   notice:
     create: "%{name}を登録しました"
     update: "%{name}を更新しました"
