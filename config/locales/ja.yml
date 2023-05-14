@@ -8,14 +8,15 @@ ja:
         memo: メモ
         author: 著者
         picture: 写真
-  book_views:
-    books: "%{name}の一覧"
-    new_book: "%{name}の新規登録"
-    show_this_book: "%{name}を詳しく見る"
-    edit_this_book: "%{name}の編集"
-    editing_book: "%{name}の編集"
-    destroy_this_book: "%{name}の削除"
-    back_to_books: "%{name}の一覧に戻る"
+  views:
+    title_index: "%{name}の一覧"
+    title_new: "%{name}の新規登録"
+    title_edit: "%{name}の編集"
+    new: "%{name}の新規登録"
+    show: "この%{name}を表示"
+    edit: "この%{name}を編集"
+    destroy: "%{name}の削除"
+    back: "%{name}の一覧に戻る"
   notice:
     create: "%{name}を登録しました"
     update: "%{name}を更新しました"

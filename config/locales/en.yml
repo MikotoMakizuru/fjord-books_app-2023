@@ -2,13 +2,15 @@ en:
   activerecord:
     models:
       book: Book
-  book_views:
-    new_book: "New %{name}"
-    show_this_book: "Show this %{name}"
-    edit_this_book: "Edit this %{name}"
-    editing_book: "Editing %{name}"
-    destroy_this_book: "Destroy this %{name}"
-    back_to_books: "Back to %{name}s"
+  views:
+    title_index: "%{name}s"
+    title_new: "new %{name}"
+    title_edit: "editing %{name}"
+    new: "new %{name}"
+    show: "show this %{name}"
+    edit: "edit this %{name}"
+    destroy: "destroy this %{name}"
+    back: "back to %{name}s"
   notice:
     create: "%{name} was successfully created."
     update: "%{name} was successfully updated."
