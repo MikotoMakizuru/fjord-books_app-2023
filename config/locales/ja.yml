@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 写真
+  views:
+    title:
+      index: "%{name}の一覧"
+      new: "%{name}の新規登録"
+      edit: "%{name}の編集"
+    new: "%{name}の新規登録"
+    show: "この%{name}を表示"
+    edit: "この%{name}を編集"
+    destroy: "%{name}の削除"
+    back: "%{name}の一覧に戻る"
+  notice:
+    create: "%{name}を登録しました"
+    update: "%{name}を更新しました"
+    destroy: "%{name}を削除しました"
