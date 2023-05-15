@@ -3,9 +3,10 @@ en:
     models:
       book: Book
   views:
-    title_index: "%{name}s"
-    title_new: "new %{name}"
-    title_edit: "editing %{name}"
+    title:
+      index: "%{name}s"
+      new: "new %{name}"
+      edit: "editing %{name}"
     new: "new %{name}"
     show: "show this %{name}"
     edit: "edit this %{name}"
