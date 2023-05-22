@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'books#index'
+  resources :books
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
     get 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  resources :books
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # resources :users, only: [:show, :edit]
+  get 'users/:id', to: 'users#show', as: 'show_user'
+  get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
+  patch 'users/:id', to: 'users#update', as: 'update_user'
+
 end
