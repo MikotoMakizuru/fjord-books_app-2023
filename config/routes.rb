@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   
   resources :users
   root to: 'books#index'
+
+  Rails.application.routes.draw do
+    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  end
 end
