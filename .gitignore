@@ -37,3 +37,12 @@
 /public/uploads
 
 .env
+
+/test/channels/application_cable/connection_test.rb
+/test/controllers/users_controller_test.rb
+/test/models/book_test.rb
+/test/models/user_test.rb
+/test/fixtures
+/app/helpers/books_helper.rb
+/app/helpers/users_helper.rb
+/app/assets/stylesheets/application.css
