@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  validates :profile, length: { maximum: 200 }
   validates :postcode, format: { with: /\A\d{3}-?\d{4}\z/, allow_blank: true }
   validates :postcode, format: { without: /\s/, allow_nil: true }
 end
