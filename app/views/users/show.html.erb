@@ -1,8 +1,8 @@
 <%= render @user %>
 
 <nav class="page-nav">
-	<% if @user.id == current_user.id %>
+  <% if @user.id == current_user.id %>
     <%= link_to t('views.common.edit', name: User.model_name.human.downcase), edit_user_registration_path %> |
-	<% end %>
+  <% end %>
   <%= link_to t('views.common.back', name: i18n_pluralize(User.model_name.human.downcase)), users_path %>
 </nav>
