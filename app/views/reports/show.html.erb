@@ -1,2 +1,12 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+<h1>日報の詳細</h1>
+
+<div class="show-item">
+  <%= render @report %>
+</div>
+
+<nav class="page-nav">
+  <%= link_to 'この本を編集', edit_report_path(@report) %> |
+  <%= link_to '日報一覧に戻る', reports_path %>
+
+  <%= button_to 'この日報を削除', @report, method: :delete %>
+</nav>

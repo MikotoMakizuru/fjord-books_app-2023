@@ -1,2 +1,7 @@
-<h1>Reports#new</h1>
-<p>Find me in app/views/reports/new.html.erb</p>
+<h1>日報作成</h1>
+
+<%= render "form", report: @report %>
+
+<nav class="page-nav">
+  <%= link_to "日報一覧に戻る", reports_path %>
+</nav>
