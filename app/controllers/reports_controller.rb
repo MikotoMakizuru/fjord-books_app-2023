@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    @report.user_id = current_user.id
 
     if @report.save
       redirect_to @report, notice: '日報を保存しました'
