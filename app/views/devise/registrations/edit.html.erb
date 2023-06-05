@@ -10,22 +10,22 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="profile">
     <%= f.label :profile %><br />
-    <%= f.text_area :profile %>
+    <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
   </div>
 
   <div class="postcode">
     <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autocomplete: "postcode" %>
+    <%= f.text_field :postcode, autofocus: true, autocomplete: "postcode" %>
   </div>
 
   <div class="address">
     <%= f.label :address %><br />
-    <%= f.text_field :address, autocomplete: "address" %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
   </div>
 
   <div class="field">
