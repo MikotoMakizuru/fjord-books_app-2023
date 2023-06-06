@@ -1,26 +1,26 @@
 <div id="<%= dom_id user %>">
   <p>
-    <strong>name:</strong>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
     <%= user.name %>
   </p>
 
   <p>
-    <strong>email:</strong>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
     <%= user.email %>
   </p>
 
   <p>
-    <strong>profile:</strong>
+    <strong><%= User.human_attribute_name(:profile) %>:</strong>
     <%= user.profile %>
   </p>
 
   <p>
-    <strong>postcode:</strong>
+    <strong><%= User.human_attribute_name(:postcode) %>:</strong>
     <%= user.postcode %>
   </p>
 
   <p>
-    <strong>address:</strong>
+    <strong><%= User.human_attribute_name(:address) %>:</strong>
     <%= user.address %>
   </p>
 
