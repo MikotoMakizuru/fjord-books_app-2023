@@ -10,3 +10,21 @@
 
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
+
+<h2>コメント</h2>
+
+<%= form_with(model: [@book, @comment], local: true) do |form| %>
+  <%= form.text_field :content %>
+
+  <%= form.hidden_field :commentable_id, value: @book.id %>
+  <%= form.hidden_field :commentable_type, value: @book.class %>
+
+  <div class="actions">
+    <%= form.submit "コメントを投稿する" %>
+  </div>
+
+  <% @comments.each do |comment| %>
+    <p>Posted by: <%= comment.user.name %></p>
+    <p><%= comment.content %></p>
+  <% end %>
+<% end %>
