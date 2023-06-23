@@ -13,18 +13,29 @@
 
 <h2>コメント</h2>
 
-<%= form_with(model: [@book, @comment], local: true) do |form| %>
-  <%= form.text_field :content %>
+<% @comments.each do |comment| %>
+  <p>
+    <div class="show-item">
+      <% if comment.user.name.present? %>
+        <p>Posted by: <%= comment.user.name %></p>
+        <%= l(comment.created_at, format: :long) %>
+      <% else %>
+        <p>Posted by: <%= comment.user.email %></p>
+      <% end %>  
+      <p><%= comment.content %></p>
+    </div>
+  </p>
+<% end %>
 
-  <%= form.hidden_field :commentable_id, value: @book.id %>
-  <%= form.hidden_field :commentable_type, value: @book.class %>
+<%= form_with(model: [@book, @comment], local: true) do |form| %>
+  <p>
+    <%= form.text_field :content %>
+
+    <%= form.hidden_field :commentable_id, value: @book.id %>
+    <%= form.hidden_field :commentable_type, value: @book.class %>
+  </p>
 
   <div class="actions">
-    <%= form.submit "コメントを投稿する" %>
+    <%= form.submit "コメントする" %>
   </div>
-
-  <% @comments.each do |comment| %>
-    <p>Posted by: <%= comment.user.name %></p>
-    <p><%= comment.content %></p>
-  <% end %>
 <% end %>
