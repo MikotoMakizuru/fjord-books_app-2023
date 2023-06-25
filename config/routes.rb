@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: 'books#index'
 
   resources :books do
-    resources :comments, only: %i(create), module: :books
+    resources :comments, only: %i(create destroy), module: :books
   end
 
   resources :reports
