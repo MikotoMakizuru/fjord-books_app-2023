@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to book_comments_path, notice: 'コメントを投稿しました！'
+      redirect_to @commentable, notice: 'コメントを投稿しました！'
     else
       redirect_to new_book_comment_path, alert: 'コメントの投稿に失敗しました。。orz'
     end
