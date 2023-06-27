@@ -44,7 +44,7 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @report.destroy
 
-    redirect_to reports_url, notice: '本を削除しました'
+    redirect_to reports_url, notice: '日報を削除しました'
   end
 
   private
