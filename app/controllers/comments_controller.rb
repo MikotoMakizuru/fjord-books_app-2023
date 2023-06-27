@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_commentable, only: %i[create]
+  before_action :set_commentable, only: %i[create destroy]
 
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find(params[:id]).destroy
 
-    redirect_to book_comments_path, notice: 'コメントを削除しました'
+    redirect_to @commentable, notice: 'コメントを削除しました'
   end
 
   private

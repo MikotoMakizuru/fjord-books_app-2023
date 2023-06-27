@@ -29,6 +29,9 @@
         <p>Posted by: <%= comment.user.email %></p>
       <% end %>
       <p><%= comment.content %></p>
+      <% if comment.user_id == current_user.id %>
+        <%= link_to '削除する', report_comment_path(@report, comment), data: { turbo_method: :delete } %>
+      <% end %>
     </div>
   </p>
 <% end %>

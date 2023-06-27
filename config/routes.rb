@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :reports do
-    resources :comments, only: %i(create), module: :reports
+    resources :comments, only: %i(create destroy), module: :reports
   end
 
   resources :users, only: %i(index show)
