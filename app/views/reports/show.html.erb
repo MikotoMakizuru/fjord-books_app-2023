@@ -12,7 +12,7 @@
   <%= link_to '日報一覧に戻る', reports_path %>
 
   <% if @report.user_id == current_user.id %>
-    <%= button_to 'この日報を削除', report_path(@report), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    <%= button_to 'この日報を削除', @report, method: :delete %>
   <% end %>
 
 </nav>
@@ -30,7 +30,7 @@
       <% end %>
       <p><%= comment.content %></p>
       <% if comment.user_id == current_user.id %>
-        <%= link_to '削除する', report_comment_path(@report, comment), data: { turbo_method: :delete } %>
+        <%= link_to '削除する', report_comment_path(@report, comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
     </div>
   </p>
