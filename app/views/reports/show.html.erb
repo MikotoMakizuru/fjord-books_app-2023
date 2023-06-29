@@ -38,7 +38,7 @@
 
 <%= form_with(model: [@report, @comment], local: true) do |form| %>
   <p>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, required: true %>
 
     <%= form.hidden_field :commentable_id, value: @report.id %>
     <%= form.hidden_field :commentable_type, value: @report.class %>

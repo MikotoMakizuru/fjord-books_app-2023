@@ -32,7 +32,7 @@
 
 <%= form_with(model: [@book, @comment], local: true) do |form| %>
   <p>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, required: true %>
 
     <%= form.hidden_field :commentable_id, value: @book.id %>
     <%= form.hidden_field :commentable_type, value: @book.class %>
