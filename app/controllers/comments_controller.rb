@@ -10,7 +10,12 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: 'コメントを投稿しました！'
     else
-      redirect_to new_book_comment_path, alert: 'コメントの投稿に失敗しました。。orz'
+      case @commentable
+      when Book
+        redirect_to book_path(@commentable), status: :unprocessable_entity
+      when Report
+        redirect_to report_path(@commentable), status: :unprocessable_entity
+      end
     end
   end
 
