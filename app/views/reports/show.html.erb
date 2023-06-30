@@ -19,22 +19,7 @@
 
 <h2>コメント</h2>
 
-<% @comments.each do |comment| %>
-  <p>
-    <div class="show-item">
-      <% if comment.user.name.present? %>
-        <p>Posted by: <%= comment.user.name %></p>
-        <%= l(comment.created_at, format: :long) %>
-      <% else %>
-        <p>Posted by: <%= comment.user.email %></p>
-      <% end %>
-      <p><%= comment.content %></p>
-      <% if comment.user_id == current_user.id %>
-        <%= link_to '削除する', report_comment_path(@report, comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-      <% end %>
-    </div>
-  </p>
-<% end %>
+<%= render 'comments/comment', comments: @comments, commentable: @report %>
 
 <%= form_with(model: [@report, @comment], local: true) do |form| %>
   <p>
