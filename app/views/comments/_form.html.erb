@@ -1,0 +1,12 @@
+<%= form_with(model: [commentable, comment], local: true) do |form| %>
+  <p>
+    <%= form.text_field :content, required: true %>
+
+    <%= form.hidden_field :commentable_id, value: commentable.id %>
+    <%= form.hidden_field :commentable_type, value: commentable.class %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit 'コメントする' %>
+  </div>
+<% end %>

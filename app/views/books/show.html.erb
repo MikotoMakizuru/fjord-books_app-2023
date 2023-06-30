@@ -15,15 +15,4 @@
 
 <%= render 'comments/comment', comments: @comments, commentable: @book %>
 
-<%= form_with(model: [@book, @comment], local: true) do |form| %>
-  <p>
-    <%= form.text_field :content, required: true %>
-
-    <%= form.hidden_field :commentable_id, value: @book.id %>
-    <%= form.hidden_field :commentable_type, value: @book.class %>
-  </p>
-
-  <div class="actions">
-    <%= form.submit 'コメントする' %>
-  </div>
-<% end %>
+<%= render 'comments/form', comment: @comment, commentable: @book %>
