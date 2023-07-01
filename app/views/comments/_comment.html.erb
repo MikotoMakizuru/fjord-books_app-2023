@@ -2,14 +2,19 @@
   <p>
     <div class="show-item">
       <% if comment.user.name.present? %>
-        <p>Posted by: <%= comment.user.name %></p>
-        <%= l(comment.created_at, format: :long) %>
+        <strong><%= Comment.human_attribute_name(:contributor) %>:</strong>
+        <%= comment.user.name %>
+        <p>
+          <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+          <%= l(comment.created_at, format: :long) %>
+        </p>
       <% else %>
-        <p>Posted by: <%= comment.user.email %></p>
+        <strong><%= Comment.human_attribute_name(:contributor) %>:</strong>
+        <%= comment.user.email %></p>
       <% end %>
       <p><%= comment.content %></p>
       <% if comment.user_id == current_user.id %>
-        <%= link_to '削除する', polymorphic_path([commentable, comment]), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+        <%= link_to t('helpers.link.delete'), polymorphic_path([commentable, comment]), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       <% end %>
     </div>
   </p>

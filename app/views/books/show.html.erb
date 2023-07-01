@@ -11,7 +11,7 @@
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
 
-<h2>コメント</h2>
+<h2><%= t('activerecord.models.comment') %></h2>
 
 <%= render 'comments/comment', comments: @comments, commentable: @book %>
 

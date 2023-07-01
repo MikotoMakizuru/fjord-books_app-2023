@@ -1,4 +1,4 @@
-<h1>日報の詳細</h1>
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
 <div class="show-item">
   <%= render @report %>
@@ -6,18 +6,18 @@
 
 <nav class="page-nav">
   <% if @report.user_id == current_user.id %>
-    <%= link_to 'この本を編集', edit_report_path(@report) %> |
+    <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_path(@report) %> |
   <% end %>
 
-  <%= link_to '日報一覧に戻る', reports_path %>
+  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 
   <% if @report.user_id == current_user.id %>
-    <%= button_to 'この日報を削除', @report, method: :delete %>
+    <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 
 </nav>
 
-<h2>コメント</h2>
+<h2><%= t('activerecord.models.comment') %></h2>
 
 <%= render 'comments/comment', comments: @comments, commentable: @report %>
 
