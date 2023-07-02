@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @commentable, notice: 'コメントを投稿しました！'
+      redirect_to @commentable, notice: t('controllers.common.notice_post', name: Comment.model_name.human)
     else
       case @commentable
       when Book
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def destroy
     Comment.find(params[:id]).destroy
 
-    redirect_to @commentable, notice: 'コメントを削除しました'
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private
