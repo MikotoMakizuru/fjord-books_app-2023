@@ -40,7 +40,7 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report = Report.find(params[:id])
+    @report = current_user.reports.find(params[:id])
     @report.destroy
 
     redirect_to reports_url, notice: '日報を削除しました'
