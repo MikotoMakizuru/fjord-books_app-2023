@@ -120,6 +120,8 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    link:
+      delete: 削除する
   number:
     currency:
       format:
@@ -207,6 +209,7 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      notice_post: "%{name}が投稿されました。"
   layouts:
     application:
       menu: メニュー
