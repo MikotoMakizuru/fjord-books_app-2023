@@ -26,7 +26,7 @@ class ReportsController < ApplicationController
   end
 
   def edit
-    @report = Report.find(params[:id])
+    @report = current_user.reports.find(params[:id])
   end
 
   def update
