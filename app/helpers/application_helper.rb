@@ -1,5 +1,5 @@
 
-require "uri"
+require 'uri'
 
 module ApplicationHelper
   # localeに応じて複数形の表記を変える
@@ -20,15 +20,14 @@ module ApplicationHelper
     safe_join(content.split("\n"), tag.br)
   end
 
-  def text_url_to_link text
-
+  def text_url_to_link(text)
     URI.extract(text, ['http']).uniq.each do |url|
-      sub_text = ""
-      sub_text << "<a href=" << url << " >" << url << "</a>"
-  
+      sub_text = ''
+      sub_text << '<a href=' << url << ' >' << url << '</a>'
+
       text.gsub!(url, sub_text)
     end
-  
-    return text
+
+    text
   end
 end
