@@ -79,12 +79,10 @@ class ReportsController < ApplicationController
   def find_report_id(url)
     parsed_url = URI.parse(url)
     path = parsed_url.path
-    match_data = path.match(/\/reports\/(\d+)/)
+    match_data = path.match(%r{/reports/(\d+)})
 
-    if match_data
-      report_id = match_data[1].to_i
-    else
-      nil
-    end
+    return unless match_data
+
+    match_data[1].to_i
   end
 end
