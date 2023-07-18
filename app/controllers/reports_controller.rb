@@ -32,6 +32,7 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
+      @report.mentioning_reports.each { |mentioned_report_id| @report.mentioning_reports.delete(mentioned_report_id) }
       create_mentions
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
