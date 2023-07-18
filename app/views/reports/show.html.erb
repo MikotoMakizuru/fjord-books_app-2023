@@ -5,7 +5,7 @@
 </div>
 
 <% if @mentioned_reports.presence %>
-  <p>この記事は以下の記事からリンクされています</p>
+  <p><%= t('views.common.mentioned_report') %></p>
   <% @mentioned_reports.each do |mentioned_report| %>
     <p>
       <%= link_to(mentioned_report.title, "http://localhost:3000/reports/#{mentioned_report.id}") %>
