@@ -57,7 +57,7 @@ class ReportsController < ApplicationController
   end
 
   def create_mentions
-    mentioned_report_ids = find_mentions
+    mentioned_report_ids = find_mentioned_report_ids
 
     mentioned_report_ids.each do |mentioned_report_id|
       unless Mention.exists?(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
@@ -66,25 +66,13 @@ class ReportsController < ApplicationController
     end
   end
 
-  def find_mentions
-    mentioned_reports = []
-    content = @report.content
-    urls = URI.extract(content, ['http'])
+  MENTION_PATH_REGEX = %r{/reports/(\d+)}
 
-    urls.each do |url|
-      report_id = find_report_id(url)
-      mentioned_reports << report_id
+  def find_mentioned_report_ids
+    report_ids = URI.extract(@report.content, ['http']).map do |url|
+      path = URI.parse(url).path
+      path.match(MENTION_PATH_REGEX)[1]&.to_i
     end
-    mentioned_reports.compact.uniq
-  end
-
-  def find_report_id(url)
-    parsed_url = URI.parse(url)
-    path = parsed_url.path
-    match_data = path.match(%r{/reports/(\d+)})
-
-    return unless match_data
-
-    match_data[1].to_i
+    report_ids.compact.uniq
   end
 end
