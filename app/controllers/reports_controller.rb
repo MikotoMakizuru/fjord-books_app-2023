@@ -32,8 +32,10 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
-      @report.mentioning_reports.each { |mentioned_report_id| @report.mentioning_reports.delete(mentioned_report_id) }
-      create_mentions
+      ActiveRecord::Base.transaction do
+        @report.mentioning_reports.each { |mentioned_report_id| @report.mentioning_reports.delete(mentioned_report_id) }
+        create_mentions
+      end
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
@@ -61,7 +63,7 @@ class ReportsController < ApplicationController
 
     mentioned_report_ids.each do |mentioned_report_id|
       unless Mention.exists?(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
-        Mention.create(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
+        Mention.create!(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
       end
     end
   end
