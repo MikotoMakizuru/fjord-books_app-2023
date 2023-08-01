@@ -62,9 +62,7 @@ class ReportsController < ApplicationController
     mentioned_report_ids = find_mentioned_report_ids
 
     mentioned_report_ids.each do |mentioned_report_id|
-      unless Mention.exists?(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
-        Mention.create!(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
-      end
+      Mention.find_or_create_by!(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
     end
   end
 
