@@ -66,18 +66,14 @@ class ReportsController < ApplicationController
     end
   end
 
-  # パスが "/reports/" で始まり, その後に数字が続くかチェックする正規表現
-  REPORTS_PATH_WITH_NUMBER_REGEX = %r{^/reports/\d+$}
   # レポートの id を取得するための正規表現
   MENTION_PATH_REGEX = %r{/reports/(\d+)}
 
   def find_mentioned_report_ids
     report_ids = URI.extract(@report.content, ['http']).map do |url|
-      if URI.parse(url).path.match?(REPORTS_PATH_WITH_NUMBER_REGEX)
-        path = URI.parse(url).path
-        path.match(MENTION_PATH_REGEX)[1]&.to_i
-      end
+      path = URI.parse(url).path
+      MENTION_PATH_REGEX.match(path, 0)&.captures
     end
-    report_ids.compact.uniq
+    report_ids.compact.flatten.uniq.map(&:to_i)
   end
 end
