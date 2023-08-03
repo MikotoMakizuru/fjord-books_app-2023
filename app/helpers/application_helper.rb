@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 module ApplicationHelper
   # localeに応じて複数形の表記を変える
   # - 日本語の場合 => 本

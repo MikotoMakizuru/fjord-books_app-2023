@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @mentioned_reports = @report.mentioned_reports
   end
 
   # GET /reports/new
@@ -22,6 +23,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.new(report_params)
 
     if @report.save
+      create_mentions
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
@@ -30,6 +32,10 @@ class ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
+      ActiveRecord::Base.transaction do
+        @report.mentioning_reports.each { |mentioned_report_id| @report.mentioning_reports.delete(mentioned_report_id) }
+        create_mentions
+      end
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
@@ -50,5 +56,24 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:title, :content)
+  end
+
+  def create_mentions
+    mentioned_report_ids = find_mentioned_report_ids
+
+    mentioned_report_ids.each do |mentioned_report_id|
+      Mention.find_or_create_by!(mentioning_id: @report.id, mentioned_id: mentioned_report_id)
+    end
+  end
+
+  # レポートの id を取得するための正規表現
+  MENTION_PATH_REGEX = %r{/reports/(\d+)}
+
+  def find_mentioned_report_ids
+    report_ids = URI.extract(@report.content, ['http']).map do |url|
+      path = URI.parse(url).path
+      MENTION_PATH_REGEX.match(path, 0)&.captures
+    end
+    report_ids.compact.flatten.uniq.map(&:to_i)
   end
 end
