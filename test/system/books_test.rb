@@ -3,17 +3,26 @@
 require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
+  # setup do
+  #   @book = books(:one)
+
+  #   visit root_url
+  #   fill_in 'メール', with: 'alice@example.com'
+  #   fill_in 'パスワード', with: 'password'
+  #   click_on 'ログイン'
+  # end
+
   # test 'visiting the index' do
   #   visit books_url
-  #   assert_selector 'h1', text: 'Books'
+  #   assert_selector 'h1', text: '本の一覧'
   # end
 
   # test 'should create book' do
   #   visit books_url
-  #   click_on 'New book'
-
-  #   fill_in 'Memo', with: @book.memo
-  #   fill_in 'Title', with: @book.title
+  #   click_on '本の新規作成'
+    
+  #   fill_in 'タイトル', with: @book.title
+  #   fill_in 'メモ', with: @book.title
   #   click_on 'Create Book'
 
   #   assert_text 'Book was successfully created'
