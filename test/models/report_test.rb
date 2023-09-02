@@ -16,38 +16,26 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'created_on' do
-    assert_equal Time.zone.today, @report_by_alice.created_on
+    @report_by_alice.created_at = DateTime.new(1993, 2, 24, 12, 30, 45)
+    assert_equal 'Wed, 24 Feb 1993'.to_date, @report_by_alice.created_on
   end
 
   test 'seve_mentions' do
     # 言及なし
-    report = {
-      user: users(:alice),
-      title: 'alice title',
-      content: 'alice content'
-    }
-    report = Report.create(report)
+    report = @alice.reports.create!(user: users(:alice), title: 'アリスの日報です', content: 'アリスです。日報を書きました。')
     assert_equal [], report.mentioning_reports
 
     # 言及あり
-    report = {
-      user: users(:alice),
-      title: 'alice title',
-      content: "hoge http://localhost:3000/reports/#{@report_by_bob.id}"
-    }
-    report = Report.create(report)
+    report = @alice.reports.create!(user: users(:alice), title: 'アリスの日報です', content: "参考記事:hoge http://localhost:3000/reports/#{@report_by_bob.id}")
     assert_equal [@report_by_bob], report.mentioning_reports
 
     # 言及するURLを更新
-    updated_content = {
-      content: "fuga http://localhost:3000/reports/#{@report_by_carol.id}"
-    }
-    report.update(updated_content)
+    report.update!(content: "参考記事:http://localhost:3000/reports/#{@report_by_carol.id} (編集済)")
     assert_equal [@report_by_bob, @report_by_carol], report.mentioning_reports
 
     # 言及するURLを削除して更新
     deleted_mention_content = {
-      content: 'Dleted mention'
+      content: 'Deleted mention'
     }
     report.update(deleted_mention_content)
     assert_equal [], report.reload.mentioning_reports

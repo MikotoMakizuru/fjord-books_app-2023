@@ -2,15 +2,15 @@
 
 report_by_alice:
   user: alice
-  title: alice title
-  content: alice content
+  title: アリスの日報です
+  content: アリスです。日報を書きました。
 
 report_by_bob:
   user: bob
-  title: bob title
-  content: bob content
+  title: ボブの日報です
+  content: ボブです。日報を書きました。
 
 report_by_carol:
   user: carol
-  title: carol title
-  content: carol content
+  title: キャロルの日報です
+  content: キャロルです。日報を書きました。

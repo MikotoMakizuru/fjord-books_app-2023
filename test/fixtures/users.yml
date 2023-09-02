@@ -5,14 +5,14 @@
 # below each fixture, per the syntax in the comments below
 
 alice:
-  name: alice
+  name: アリス
   email: alice@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 bob:
-  name: bob
+  name: ボブ
   email: bob@example.com
 
 carol:
-  name: carol
+  name: キャロル
   email: carol@example.com
