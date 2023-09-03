@@ -22,11 +22,11 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'seve_mentions' do
     # 言及なし
-    report = @alice.reports.create!(user: users(:alice), title: 'アリスの日報です', content: 'アリスです。日報を書きました。')
+    report = @alice.reports.create!(title: 'アリスの日報です', content: 'アリスです。日報を書きました。')
     assert_equal [], report.mentioning_reports
 
     # 言及あり
-    report = @alice.reports.create!(user: users(:alice), title: 'アリスの日報です', content: "参考記事:hoge http://localhost:3000/reports/#{@report_by_bob.id}")
+    report = @alice.reports.create!(title: 'アリスの日報です', content: "参考記事:hoge http://localhost:3000/reports/#{@report_by_bob.id}")
     assert_equal [@report_by_bob], report.mentioning_reports
 
     # 言及するURLを更新
