@@ -31,7 +31,7 @@ class ReportTest < ActiveSupport::TestCase
 
     # 言及するURLを更新
     report.update!(content: "参考記事:http://localhost:3000/reports/#{@report_by_carol.id} (編集済)")
-    assert_equal [@report_by_bob, @report_by_carol], report.mentioning_reports
+    assert_equal [@report_by_bob, @report_by_carol].sort, report.mentioning_reports.sort
 
     # 言及するURLを削除して更新
     deleted_mention_content = {
