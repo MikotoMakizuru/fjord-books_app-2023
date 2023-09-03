@@ -49,10 +49,10 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'should destroy Report' do
     visit report_url(@report)
+    assert_text 'アリスの日報です'
     click_on 'この日報を削除', match: :first
 
     assert_text '日報が削除されました。'
-    assert_no_text '更新後のアリスの日報です'
-    assert_no_text 'アリスです。日報を更新しました。'
+    assert_no_text 'アリスの日報です'
   end
 end
