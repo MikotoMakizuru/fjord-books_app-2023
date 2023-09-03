@@ -17,7 +17,7 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'created_on' do
     @report_by_alice.created_at = Time.zone.local(1993, 2, 24, 12, 30, 45)
-    assert_equal "1993-02-24".to_date, @report_by_alice.created_on
+    assert_equal '1993-02-24'.to_date, @report_by_alice.created_on
   end
 
   test 'seve_mentions' do
